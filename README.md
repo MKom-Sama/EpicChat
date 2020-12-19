@@ -6,6 +6,8 @@ so I started this project in hope of turning it online.
 
 **STACK :** *MongoDB, ExpressJS, ReactJS, NodeJS* 
 
+[Live](https://epicchat.herokuapp.com/)
+
 The completed project should be something like this:
 * *A room with three video chats, Two Sides and an organizer.*
 * *People join and view the discussion and upvote the side that makes more sense.*
