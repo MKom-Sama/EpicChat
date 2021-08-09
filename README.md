@@ -6,7 +6,7 @@ so I started this project in hope of turning it online.
 
 **STACK :** *MongoDB, ExpressJS, ReactJS, NodeJS* 
 
-[Live](https://epicchat.herokuapp.com/)
+[Live](https://epicchat.herokuapp.com/) (Give the site a min since its hosted for free.)
 
 The completed project should be something like this:
 * *A room with three video chats, Two Sides and an organizer.*
