@@ -31,6 +31,10 @@ export default function Signup() {
   };
   const [userInput, setUserInput] = useState({});
 
+  const isValidEmail = (value) => new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/).test(value);
+  // min 8 letters, max 10 atleast one upper one lower one number one special character
+  const isValidPassword = (value) => new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/).test(value);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -39,6 +43,26 @@ export default function Signup() {
       email: userInput.email,
       pass: userInput.password,
     });
+
+    // Regex Validation
+
+    let msg = '';
+    if (!isValidEmail(userInput.email)) {
+      msg = 'Invalid Email';
+    }
+
+    if (!isValidPassword(userInput.password)) {
+      if (msg !== '') {
+        msg += ' and Invalid password';
+      } else {
+        msg = 'Password must be 8-10 with at least upper,lower,number and a special character';
+      }
+    }
+
+    if (msg) {
+      toast(msg, toastMods);
+      return;
+    }
 
     axios({
       url: "/user/signup",
@@ -51,7 +75,6 @@ export default function Signup() {
       .catch((err) => console.log(err));
 
     clearInput();
-    //console.log(userInput);
   };
 
   const handleChange = (e) => {
@@ -104,7 +127,7 @@ export default function Signup() {
               <input
                 onChange={handleChange}
                 id="emailInput"
-                type="email"
+                type="text"
                 required
               />
               <label htmlFor="emailInput">Email</label>
